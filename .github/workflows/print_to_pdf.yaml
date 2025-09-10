@@ -52,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Resume.pdf
+          git add Lachlan_Deck_Resume.pdf
           # only commits if there's a change
           git diff --cached --quiet || git commit -m "chore: update Lachlan_Deck_Resume.pdf [skip ci]"
           git push origin HEAD:${GITHUB_REF_NAME}
