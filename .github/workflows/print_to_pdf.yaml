@@ -1,0 +1,52 @@
+name: Export HTML to PDF
+
+on:
+  push:
+    branches: # any branch
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout your repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Install Puppeteer (headless Chrome)
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Generate single-page PDF from HTML
+        run: |
+          node -e "
+          const puppeteer = require('puppeteer');
+          (async () => {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            await page.goto('file://' + process.cwd() + '/resume.html', { waitUntil: 'networkidle0' });
+            const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+            const a4HeightPx = 1122, a4WidthPx = 794;
+            let scale = a4HeightPx / bodyHeight;
+            if (scale > 1) scale = 1;
+            console.log('Scaling to', scale);
+            await page.pdf({ path: 'resume.pdf', format: 'A4', scale: scale, printBackground: true });
+            await browser.close();
+          })();
+          "
+
+      - name: Commit and push PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resume.pdf
+          # only commits if there's a change
+          git diff --cached --quiet || git commit -m "chore: update resume.pdf [skip ci]"
+          git push origin HEAD:${GITHUB_REF_NAME}
