@@ -43,7 +43,7 @@ jobs:
             let scale = a4HeightPx / bodyHeight;
             if (scale > 1) scale = 1;
             console.log('Scaling to', scale);
-            await page.pdf({ path: 'Resume.pdf', format: 'A4', scale: scale, printBackground: true });
+            await page.pdf({ path: 'Lachlan_Deck_Resume.pdf', format: 'A4', scale: scale, printBackground: true });
             await browser.close();
           })();
           "
@@ -54,5 +54,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add Resume.pdf
           # only commits if there's a change
-          git diff --cached --quiet || git commit -m "chore: update Resume.pdf [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: update Lachlan_Deck_Resume.pdf [skip ci]"
           git push origin HEAD:${GITHUB_REF_NAME}
