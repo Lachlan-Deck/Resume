@@ -35,7 +35,7 @@ jobs:
               args: ['--no-sandbox', '--disable-setuid-sandbox']
             });
             const page = await browser.newPage();
-            await page.goto('file://' + process.cwd() + '/resume.html', { waitUntil: 'networkidle0' });
+            await page.goto('file://' + process.cwd() + '/Resume.html', { waitUntil: 'networkidle0' });
             const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
             const a4HeightPx = 1122, a4WidthPx = 794;
             let scale = a4HeightPx / bodyHeight;
@@ -45,7 +45,6 @@ jobs:
             await browser.close();
           })();
           "
-
 
       - name: Commit and push PDF
         run: |
