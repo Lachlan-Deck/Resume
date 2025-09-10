@@ -30,7 +30,10 @@ jobs:
           node -e "
           const puppeteer = require('puppeteer');
           (async () => {
-            const browser = await puppeteer.launch();
+            const browser = await puppeteer.launch({
+              headless: true,
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
             const page = await browser.newPage();
             await page.goto('file://' + process.cwd() + '/resume.html', { waitUntil: 'networkidle0' });
             const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
@@ -42,6 +45,7 @@ jobs:
             await browser.close();
           })();
           "
+
 
       - name: Commit and push PDF
         run: |
