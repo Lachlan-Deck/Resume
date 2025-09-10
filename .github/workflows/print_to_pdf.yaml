@@ -4,6 +4,8 @@ on:
   push:
     branches: # all branches
       - '**'
+permissions:
+  contents: write #needed so it can commit pdf back to branch
 
 jobs:
   build:
