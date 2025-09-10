@@ -2,7 +2,7 @@ name: Export HTML to PDF
 
 on:
   push:
-    branches: # any branch
+    branches: # all branches
       - '**'
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout your repo
+      # Checkout repo
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -20,9 +20,10 @@ jobs:
         with:
           node-version: 20
 
-      # Install Puppeteer (headless Chrome)
+      # Install Puppeteer (headless firefox)
       - name: Install Puppeteer
-        run: npm install puppeteer
+        run: |
+          PUPPETEER_PRODUCT=firefox npm install puppeteer
 
       - name: Generate single-page PDF from HTML
         run: |
