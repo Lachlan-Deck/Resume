@@ -5,275 +5,179 @@
     <title>Lachlan Deck Resume</title>
     <style>
       :root {
-        --bg_h: #1d2021;
-        --bg:   #282828;
-        --bg_s: #32302f;
-        --bg1:  #3c3836;
-        --bg2:  #504945;
-        --bg3:  #665c54;
-        --bg4:  #7c6f64;
+  /* Backgrounds */
+  --bg_h: #f5f5f5;
+  --bg:   #ffffff;
+  --bg_s: #f7f7f7;
+  --bg1:  #eeeeee;
+  --bg2:  #e0e0e0;
+  --bg3:  #cccccc;
+  --bg4:  #bdbdbd;
 
-        --fg:  #fbf1c7;
-        --fg1: #ebdbb2;
-        --fg2: #d5c4a1;
-        --fg3: #bdae93;
-        --fg4: #a89984;
+  /* Foreground (text) */
+  --fg:  #111111;
+  --fg1: #222222;
+  --fg2: #444444;
+  --fg3: #666666;
+  --fg4: #888888;
 
-        --red:    #fb4934;
-        --green:  #b8bb26;
-        --yellow: #fabd2f;
-        --blue:   #83a598;
-        --purple: #d3869b;
-        --aqua:   #8ec07c;
-        --gray:   #928374;
-        --orange: #fe8019;
+  /* Brand */
+  --red: #e01a22;
+  --red-dim: #b71c1c;
 
-        --red-dim:    #cc2412;
-        --green-dim:  #98971a;
-        --yellow-dim: #d79921;
-        --blue-dim:   #458588;
-        --purple-dim: #b16286;
-        --aqua-dim:   #689d6a;
-        --gray-dim:   #a89984;
-        --orange-dim: #d65d0e;
-      }
+  /* Minimal supporting palette */
+  --gray: #9e9e9e;
+  --gray-dim: #757575;
+}
 
-      /* gruvbox theme colors */
+/* Utility text colors */
+.red { color: var(--red); }
+.red-dim { color: var(--red-dim); }
+.gray { color: var(--gray); }
+.gray-dim { color: var(--gray-dim); }
 
-      .red {
-        color: var(--red);
-      }
+/* Foreground */
+.fg { color: var(--fg); }
+.fg1 { color: var(--fg1); }
+.fg2 { color: var(--fg2); }
+.fg3 { color: var(--fg3); }
+.fg4 { color: var(--fg4); }
 
-      .green {
-        color: var(--green);
-      }
+/* Backgrounds (FIXED: now actually background-color) */
+.bg-hard { background-color: var(--bg_h); }
+.bg { background-color: var(--bg); }
+.bg-soft { background-color: var(--bg_s); }
+.bg1 { background-color: var(--bg1); }
+.bg2 { background-color: var(--bg2); }
+.bg3 { background-color: var(--bg3); }
+.bg4 { background-color: var(--bg4); }
 
-      .yellow {
-        color: var(--yellow);
-      }
+* {
+  box-sizing: border-box;
+}
 
-      .blue {
-        color: var(--blue);
-      }
+/* Remove dark outer background */
+.page-bg {
+  display: none;
+}
 
-      .purple {
-        color: var(--purple);
-      }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--fg1);
+}
 
-      .aqua {
-        color: var(--aqua);
-      }
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--bg);
+  padding: 24px;
+}
 
-      .gray {
-        color: var(--gray);
-      }
+.col1 {
+  width: 50%;
+  padding: 20px;
+  border-right: 2px solid var(--red);
+  background-color: var(--bg_s);
+}
 
-      .orange {
-        color: var(--orange);
-      }
+.col2 {
+  width: 50%;
+  padding: 20px;
+  background-color: var(--bg);
+}
 
-      /* Dim Colors */
+/* Typography */
+h1 {
+  margin-top: 0;
+  font-size: 28px;
+  color: var(--red);
+  letter-spacing: 0.5px;
+}
 
-      .red-dim {
-        color: var(--red-dim);
-      }
+h2 {
+  margin-bottom: 10px;
+  color: var(--fg);
+  font-size: 18px;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 4px;
+}
 
-      .green-dim {
-        color: var(--green-dim);
-      }
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
 
-      .yellow-dim {
-        color: var(--yellow-dim);
-      }
+.block {
+  margin-bottom: 20px;
+}
 
-      .blue-dim {
-        color: var(--blue-dim);
-      }
+p {
+  margin: 5px 0 10px;
+  color: var(--fg1);
+}
 
-      .purple-dim {
-        color: var(--purple-dim);
-      }
+strong {
+  color: var(--red);
+}
 
-      .aqua-dim {
-        color: var(--aqua-dim);
-      }
+/* Links */
+a {
+  color: var(--red);
+  text-decoration: none;
+}
 
-      .gray-dim {
-        color: var(--gray-dim);
-      }
+a:hover {
+  text-decoration: underline;
+}
 
-      .orange-dim {
-        color: var(--orange-dim);
-      }
+/* Print setup */
+@page {
+  size: A4;
+  margin: 0;
+}
 
-      /* Foreground Colors */
-
-      .fg {
-        color: var(--fg);
-      }
-
-      .fg1 {
-        color: var(--fg1);
-      }
-
-      .fg2 {
-        color: var(--fg2);
-      }
-
-      .fg3 {
-        color: var(--fg3);
-      }
-
-      .fg4 {
-        color: var(--fg4);
-      }
-
-      /* Background Colors */
-
-      .bg-hard {
-        color: var(--bg_h);
-      }
-
-      .bg {
-        color: var(--bg);
-      }
-
-      .bg-soft {
-        color: var(--bg_s);
-      }
-
-      .bg1 {
-        color: var(--bg1);
-      }
-
-      .bg2 {
-        color: var(--bg2);
-      }
-
-      .bg3 {
-        color: var(--bg3);
-      }
-
-      .bg4 {
-        color: var(--bg4);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      .page-bg {
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: #282828;
-        z-index: -1;
-      }
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        background: var(--bg);
-        color: var(--fg1);
-      }
-
-      .container {
-        display: flex;
-        flex-direction: row;
-        max-width: 1000px;
-        margin: 0 auto;
-        background: var(--bg);
-        padding: 20px;
-      }
-
-      .col1 {
-        width: 50%;
-        padding: 20px;
-        border-right: 1px solid var(--bg2);
-        background-color: var(--bg_s);
-      }
-
-      .col2 {
-        width: 50%;
-        padding: 20px;
-        background-color: var(--bg);
-      }
-
-      h1 {
-        margin-top: 0;
-        font-size: 26px;
-        color: var(--green);
-      }
-
-      h2 {
-        margin-bottom: 10px;
-        color: var(--purple);
-        font-size: 18px;
-        border-bottom: 1px solid var(--bg3);
-        padding-bottom: 4px;
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 20px;
-      }
-
-      .block {
-        margin-bottom: 20px;
-      }
-
-      p {
-        margin: 5px 0 10px;
-        color: var(--fg1);
-      }
-
-      strong {
-        color: var(--red);
-      }
-
-      a {
-        color: var(--green);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    
-    @page {
-      size: A4;     
-      margin: 0; 
-    }
-    
-    @media print {
-        .body{
-            background: var(--bg) !important;
-        }
-        .container {
-          display: flex !important;
-          flex-direction: row !important;
-          width: 100%;
-          max-width: 100%;
-        }
-
-        .col1, .col2 {
-          width: 50% !important;
-          border: none !important;
-          padding: 10px;
-        }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-    }
-    
-    html, body {
-      background: var(--bg) !important;
-      print-color-adjust: exact;
-    }
-    .col1, .col2 {
-      width: 100%;
-      border: none;
-    }
+@media print {
+  body {
+    background: var(--bg) !important;
   }
+
+  .container {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .col1, .col2 {
+    width: 50% !important;
+    border: none !important;
+    padding: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  html, body {
+    background: var(--bg) !important;
+    print-color-adjust: exact;
+  }
+
+  .col1, .col2 {
+    width: 100%;
+    border: none;
+  }
+}
     </style>
   </head>
   <body>
@@ -285,17 +189,17 @@
         </div>
         <h2>Projects</h2>
         <p>
+          <strong>Deploying AI monitoring tool on AWS</strong><br>
+          This is what im currently doing in my final semester at RMIT, They have a reporting tool that scrapes their public courses website that creates a report based off the results, we're tasked with adding a test suite and fixing up the deployment.
+          <br>
+          <strong>tech:</strong>
+          ec2, s3, bedrock, docker.
+        </p>
+        <p>
           <strong>Full Stack React-MySQL Website</strong><br>
           As part of the RMIT full stack developement course working in 2 person groups, we're tasked with building a site to handle teacher's aid applications, I worked on front-end components, built API's, contributed heavily to the TypeORM classes, and worked with some graphQL subscriptions and visualisations.
           <strong>tech:</strong>
           TS, Express, TypeORM, GraphQL, Tailwind, and Node
-        </p>
-        <p>
-          <strong>Deploying AI monitoring tool on AWS</strong><br>
-          this is what im currently doing in my final semester at RMIT, I cant be too specific about it, but they have a reporting tool that scrapes their public courses website that creates a report based off the results, we're tasked with adding a test suite and fixing up the deployment.
-          <br>
-          <strong>tech:</strong>
-          ec2, s3, bedrock, docker.
         </p>
         <p>
           <strong>Nix System Administration (Personal Project)</strong><br>
@@ -333,9 +237,9 @@
         <div class="block">
           <h2>Skills/Experience</h2>
           <ul>
-            <li>I've recieved positive feedback for my proactive communication and time management</li>
+            <li>I've received positive feedback for my proactive communication and time management</li>
             <li>I'm experienced in working through workplace and team conflict, and maintaining a happy and open professional attitude</li>
-            <li>I try to be fun to hang out with, I can gasbag about d&d, coffee, japanese culinary knives, bouldering, motorcycles and plenty else</li>
+            <li>I try to be fun to hang out with, I can gasbag about d&d, coffee, J%apanese culinary knives, bouldering, motorcycles and plenty else</li>
             <li>I'm an eager learner, I spend a lot of my free time jumping into tech rabbit holes, and exploring new technologies</li>
           </ul>
         </div>
@@ -359,8 +263,7 @@
             <h3>Student Mentor</h3>
             <ul>
               <li>Due to high academic achievement my 1st year I was able to apply for the Vygo/RMIT student mentor program</li>
-              <li>when accepted to the program mentors take a training course and then are able to respond to queries on the vygo platform</li>
-              <li>As a student mentor I've been able to respond to coursework questions and help students with php developement</li>
+              <li>As a student mentor I've been able to respond to coursework questions and mentor students in web development</li>
               <li>As a Result of my mentoring experience I feel like I've gotten valuable experience triaging students issues, and creating an un-judgemental space for them to express and work through their challenges and uncertainties</li>
             </ul>
           </div>
