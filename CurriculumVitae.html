@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lachlan Deck CV</title>
+    <style>
+      :root {
+        --bg_h: #1d2021;
+        --bg:   #282828;
+        --bg_s: #32302f;
+        --bg1:  #3c3836;
+        --bg2:  #504945;
+        --bg3:  #665c54;
+        --bg4:  #7c6f64;
+
+        --fg:  #fbf1c7;
+        --fg1: #ebdbb2;
+        --fg2: #d5c4a1;
+        --fg3: #bdae93;
+        --fg4: #a89984;
+
+        --red:    #fb4934;
+        --green:  #b8bb26;
+        --yellow: #fabd2f;
+        --blue:   #83a598;
+        --purple: #d3869b;
+        --aqua:   #8ec07c;
+        --gray:   #928374;
+        --orange: #fe8019;
+
+        --red-dim:    #cc2412;
+        --green-dim:  #98971a;
+        --yellow-dim: #d79921;
+        --blue-dim:   #458588;
+        --purple-dim: #b16286;
+        --aqua-dim:   #689d6a;
+        --gray-dim:   #a89984;
+        --orange-dim: #d65d0e;
+      }
+
+      /* gruvbox theme colors */
+      .red { color: var(--red); }
+      .green { color: var(--green); }
+      .yellow { color: var(--yellow); }
+      .blue { color: var(--blue); }
+      .purple { color: var(--purple); }
+      .aqua { color: var(--aqua); }
+      .gray { color: var(--gray); }
+      .orange { color: var(--orange); }
+
+      /* Dim Colors */
+      .red-dim { color: var(--red-dim); }
+      .green-dim { color: var(--green-dim); }
+      .yellow-dim { color: var(--yellow-dim); }
+      .blue-dim { color: var(--blue-dim); }
+      .purple-dim { color: var(--purple-dim); }
+      .aqua-dim { color: var(--aqua-dim); }
+      .gray-dim { color: var(--gray-dim); }
+      .orange-dim { color: var(--orange-dim); }
+
+      /* Foreground Colors */
+      .fg { color: var(--fg); }
+      .fg1 { color: var(--fg1); }
+      .fg2 { color: var(--fg2); }
+      .fg3 { color: var(--fg3); }
+      .fg4 { color: var(--fg4); }
+
+      /* Background Colors */
+      .bg-hard { color: var(--bg_h); }
+      .bg { color: var(--bg); }
+      .bg-soft { color: var(--bg_s); }
+      .bg1 { color: var(--bg1); }
+      .bg2 { color: var(--bg2); }
+      .bg3 { color: var(--bg3); }
+      .bg4 { color: var(--bg4); }
+
+      * {
+        box-sizing: border-box;
+      }
+      .page-bg {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: #282828;
+        z-index: -1;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background: var(--bg);
+        color: var(--fg1);
+      }
+      .cv-columns-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: var(--bg);
+        /* Added clean inside padding so content stays away from screen/page edges */
+        padding: 40px 30px;
+        column-count: 2;
+        column-gap: 50px;
+        column-rule: 1px solid var(--bg2);
+      }
+
+      /* Spacing between sections and overflow protection */
+      .block {
+        margin-bottom: 25px;
+        padding: 5px 0; /* Tiny bit of padding inside blocks to prevent clipped text */
+        break-inside: avoid; 
+        page-break-inside: avoid;
+      }
+
+      h1 {
+        column-span: all;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 32px;
+        color: var(--green);
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--purple);
+        font-size: 18px;
+        border-bottom: 1px solid var(--bg3);
+        padding-bottom: 4px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      p {
+        margin: 5px 0 10px;
+        color: var(--fg1);
+      }
+
+      strong {
+        color: var(--red);
+      }
+
+      em {
+        color: var(--yellow);
+      }
+
+      a {
+        color: var(--green);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      @page {
+        size: A4;     
+        margin: 15mm; 
+      }
+      
+      @media print {
+        html, body {
+          background: var(--bg) !important;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        .cv-columns-container {
+          padding: 20px 10px;
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cv-columns-container {
+          column-count: 1;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <div class="cv-columns-container">
+      <h1>Lachlan Deck</h1>
+      <p style="margin-top: -20px; margin-bottom: 25px; color: var(--gray-dim); column-span: all;">Curriculum Vitae</p>
+      <!-- COLUMN 1 CONTENT -->
+      <div class="block">
+        <h2>Academic & Technical Projects</h2>
+        <p>
+          <strong>RMIT University – Capstone Industry Project</strong><br>
+          Collaborated on improving an internal reporting system designed to scrape the university's public course portal and generate administrative analytical tools.
+          <br>&bull; Designed, developed, and deployed an automated testing suite to guarantee software regression stability.
+          <br>&bull; Optimised the CI/CD deployment infrastructure pipeline, successfully elevating system reliability and ongoing code maintainability.
+          <br>
+          <strong>tech:</strong>
+          AWS (EC2, S3, Bedrock), Docker, Automated Testing Frameworks.
+        </p>
+        <p>
+          <strong>Full Stack Web Application Portfolio</strong><br>
+          Engineered a comprehensive Teacher's Aide web application portal within a cross-functional two-person engineering team for RMIT's advanced full-stack assessment.
+          <br>&bull; Architected clean, responsive UI frontend components alongside robust Node/Express REST APIs and TypeORM schemas.
+          <br>&bull; Implemented complex GraphQL subscriptions and dynamic visual data dashboards.
+          <br>&bull; Navigated diverse developer workflows to deliver the project ahead of schedule, achieving top marks.
+          <br>
+          <strong>tech:</strong>
+          TypeScript, Express, TypeORM, GraphQL, Tailwind CSS, Node.js, MySQL.
+        </p>
+        <p>
+          <strong>Declarative Infrastructure & Configuration (Personal)</strong><br>
+          Leveraging the Nix ecosystem to manage reproducible Unix system environments deterministically across distinct hardware layers.
+          <br>&bull; Built a uniform, automated environment layer running seamlessly on macOS, x86 desktop machines, and ARM-based nodes using Home Manager.
+          <br>&bull; Built single-command bootstrap orchestration to configure local tech toolchains from scratch on hardware, such as a Raspberry Pi 4.
+          <br>
+          <strong>tech:</strong>
+          Nix, NixOS, Home Manager, Bash Scripting.
+        </p>
+      </div>
+      <div class="block">
+        <h2>Technical Proficiencies</h2>
+        <ul>
+          <li><strong>Languages:</strong>
+            Java, Python, JavaScript, TypeScript, SQL, Bash.</li>
+          <li><strong>Web Ecosystems:</strong>
+            Node.js, Express, TypeORM, GraphQL, Tailwind CSS.</li>
+          <li><strong>Databases:</strong>
+            MySQL, Microsoft SQL Server, SQLite, MongoDB.</li>
+          <li><strong>Tooling & Infrastructure:</strong>
+            Git CLI, lazygit, Nix, NixOS, Helix, Docker, AWS (EC2, S3).</li>
+        </ul>
+      </div>
+      <!-- COLUMN 2 CONTENT -->
+      <div class="block">
+        <h2>Contact Information</h2>
+        <ul>
+          <li>Location: Melbourne, Australia</li>
+          <li>Phone: Available upon direct email request</li>
+          <li>Email:
+            <a href="mailto:lachlan@deck-awash.com">lachlan@deck-awash.com</a></li>
+          <li>GitHub:
+            <a href="https://github.com/Lachlan-Deck/">github.com/Lachlan-Deck/</a></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Education</h2>
+        <p>
+          <strong>RMIT University</strong><br>
+          Bachelor of Information Technology<br>
+          <em>Major in Enterprise Software Development</em><br>
+          Timeline: 2022 &rarr; Present (via Open Universities Australia)<br>
+          Anticipated Graduation: July 2026
+        </p>
+        <p>
+          <strong>Gordon TAFE</strong><br>
+          Certificate III in Commercial Cookery<br>
+          Timeline: 2019 &rarr; 2021
+        </p>
+      </div>
+      <div class="block">
+        <h2>Academic & Leadership Experience</h2>
+        <p>
+          <strong>Student Peer Mentor (Vygo / RMIT Program)</strong><br>
+          Joined the Vygo student mentor program after maintaining high academic marks. My role focused on helping incoming students find their footing.
+        </p>
+        <ul>
+          <li>Helped students step through their thought processes to figure out where they were getting stuck with their technical coursework.</li>
+          <li>Chatted about student life, managing stress, and building better study habits.</li>
+          <li>Connected students with other mentors who were a better match for their specific technical needs.</li>
+        </ul>
+        <p>
+          <strong>Study Buddy Mentor (RMIT Neurodiverse Study Support)</strong><br>
+          Offered a position in this joint initiative between Vygo and RMIT's neurodiverse support team. This mentorship focused closely on study habits and managing personal or interpersonal issues.
+        </p>
+        <ul>
+          <li>Corresponded closely with students (including regular check-ins with peers like Josh and Adam), which was a highly valuable and rewarding experience.</li>
+          <li>Provided a grounded sounding board for navigating both academic pressures and personal challenges.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Professional History</h2>
+        <p>
+          <strong>Qualified Commercial Chef</strong><br>
+          Hospitality Sector | 3 Years (Pre-Degree Timeline)
+        </p>
+        <ul>
+          <li>Operated within high-pressure, strict-deadline culinary environments requiring intense real-time coordination.</li>
+          <li>Developed foundational professional soft skills: active multi-channel communication, rapid conflict resolution, and agile time management under stress.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Professional Demeanour & Interests</h2>
+        <ul>
+          <li><strong>Team Culture:</strong>
+            Valued for proactive status communication, deep accountability, and driving constructive resolution during team blockers.</li>
+          <li><strong>Learning Philosophy:</strong>
+            Avid technical explorer who regularly shifts personal free time toward deep-diving documentation and experimental setups.</li>
+          <li><strong>Personal Pursuits:</strong>
+            Tabletop gaming, artisan coffee extraction, traditional Japanese culinary knives, bouldering, and motorcycle maintenance.</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
