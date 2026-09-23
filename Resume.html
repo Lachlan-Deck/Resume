@@ -285,37 +285,41 @@
         </div>
         <h2>Projects</h2>
         <p>
-          <strong>RMIT – Final-year industry project</strong><br>
-          Enhancing an internal reporting tool that scrapes the university’s public course website to generate analytics reports. Responsible for designing and implementing an automated test suite and improving the deployment pipeline to increase reliability and maintainability.
+          <strong>RMIT – Final-year industry project</strong>
+          <br>
+          <strong>context:</strong> (Team of 4) This was an internal project for the rmit course QA team, its purpose was to scrape unformatted, and changing information on a webpage and convert it into structured exel documents.
           <br>
           <strong>tech:</strong>
           ec2, s3, bedrock, docker.
+          <br>
+          <strong>- technical impact:</strong> I spiked, and later implemented a change to the web-scraping architecture so that the llm work had minimal token requirements, the outputs would be type safe, and pipeline could be tested separately. I also implemented a two pass approach with a smaller cheaper model that reduced our running costs and sped up the pipeline.
+          <br>
+          <strong>- outcome: </strong>The client's were very happy with the work we did, our team received a HD for the project work. My work reduced input tokens by ~66%, delivered on a testing harness for the system, delivered type safe llm output with pydantic and langchain, and reduced costs by using cheaper models for non reasoning llm workloads.
         </p>
         <p>
-          <strong>Full Stack React-MySQL Website</strong><br>
-          Built a teacher’s aide application portal in a two-person team as part of the RMIT full stack development course. Developed front-end components, REST APIs, and TypeORM models, and implemented GraphQL subscriptions and data visualisations. Gained experience collaborating in a small team, navigating differing working styles, and delivering a project that met course requirements with a strong final grade.
+          <strong>RMIT - IOT project</strong>
+          <br>
+          <strong>context:</strong> (Team of 4) This was a technical project for an IOT development course, the task was to build 3 applications that would form a room booking system for study spaces in a building. This was implemented with local hosted flask apps on raspberry pi's, simulating phones room computers, and such.
           <br>
           <strong>tech:</strong>
-          TS, Express, TypeORM, GraphQL, Tailwind, and Node
+          raspberryPi's, python, postgres, MQTT, Nix Flakes.
+          <br>
+          <strong>technical impact:</strong> I implemented a testing, deployment, and dev environment management system for the team using Nix flakes. I built the booking system so that a client could view room availabilities in a web interface, make bookings, have their bookings confirmed and be sent a code for sign in, sign into a room, and have the rooms status change from vacant to occupied. this system was implemented across 3 different applications, using an mqtt server that wrote the listeners for. I also implemented the postgres database the "master" would use to store the state of the system, using a postgres Trigger to manage booking updates across tables
+          <br>
+          <strong>outcome: </strong>this was a fun project, deploying each others work and testing the functionality was challenging and required a way of deploying and testing the 3 applications locally in way we could reproduce on a PI, some team members had challening personal circumstances and needed support during development aswell, however we recieved a high grade and gained valuable experience working in teams with Nix shells, MQTT, and postgres in a complex application.
+          <br>
         </p>
-        <p>
-          <strong>Nix System Administration (Personal Project)</strong><br>
-          Using Nix to declaratively manage development environments and user-space configurations across multiple devices. Can configure reproducible development environments, manage packages, and maintain consistent setups between macOS, Raspberry Pi, and desktop systems using tools such as Home Manager. Recently leveraged this setup to provision a full local development toolchain on a Raspberry Pi 4 from a single setup script.
-        </p>
-        <div class="block">
-          <h2>Technical Skills</h2>
-          <ul>
-            <li>Database Usage(<strong>MySQL</strong>, SQLServer, SQLite,
-              <strong>MongoDB</strong>)</li>
-            <li>Object-Oriented Programming (<strong>Java, Python</strong>)</li>
-            <li>Web Development (<strong>TypeORM</strong>, JS, TS)</li>
-            <li>Linux Nerd (<strong>Git CLI, lazygit</strong>, NixOS, Helix, shell scrips.)</li>
-          </ul>
-        </div>
-        <div class="block">
-          <h2>References</h2>
-          <p>Provided on request (via Email)</p>
-        </div>
+          <strong>RMIT – Cloud computing project</strong>
+          <br>
+          <strong>context:</strong> (team of 3) this was a technical project where our team was tasked with delivering a frontend for a music library, and a backend implementation on 3 different technologies (ec2, ecs, and lambda).
+          <br>
+          <strong>tech:</strong>
+          ec2, s3, fargate, lambda, api-gateway, terraform, ansible, DNS
+          <br>
+          <strong>technical impact:</strong> I implemented the frontend UI for browsing music with filters, and logging in/out. I delivered the ec2 backend and the deployment pipeline for all 3 backends. I used ansible to install the software, clone the repo, bootstrap the nginx reverse proxy, get a https cert with certbot and lets encrypt, and then deploy the nginx https reverse proxy. the frontend was static html and I added a build step to the pipeline to sync the html to s3 for each build, which would also insert the aws users id so that the buckets would be unique for each team member.
+          <br>
+          <strong>outcome: </strong> This was a challenging project involving many new technologies that the group needed to learn and teach each other, but we received a High Distinction for our work, and were able to deliver on additional features like real a real HTTPS server (using duckdns), a full automated deploy pipeline, and the ability for each team member to deploy to their own cloud instance at the same time with no name conflicts.
+          <br>
       </div>
       <div class="col2">
         <div class="block">
@@ -331,6 +335,10 @@
           </ul>
         </div>
         <div class="block">
+          <h2>References</h2>
+          <p>Provided on request (via Email)</p>
+        </div>
+        <div class="block">
           <h2>Culture fit</h2>
           <ul>
             <li>I've received positive feedback for my proactive communication and time management.</li>
@@ -338,7 +346,7 @@
             <li>
               I like hanging out with people. I'm interested in tabletop games, coffee, Japanese culinary knives, bouldering, and motorcycles.
             </li>
-            <li>I'm an eager learner, I spend a lot of my free time jumping deep-diving on technologies.</li>
+            <li>I'm an eager learner, I spend a lot of my free time jumping in and deep-diving on technologies.</li>
           </ul>
         </div>
         <div class="block">
@@ -346,7 +354,7 @@
           <ul>
             <li>I was selected for the Vygo/RMIT student mentor program based on strong  academic performance.</li>
             <li>Provided support to students by answering coursework questions and mentoring them in web development.</li>
-            <li>I developed skills in triaging student issues. Fostered a non-judgemental, supportive environment for students to discuss and worked through challenges and uncertainties.</li>
+            <li>I developed skills in triaging student issues. Fostered a non-judgemental, supportive environment for students to discuss and work through challenges and uncertainties.</li>
           </ul>
           <div class="block">
             <div class="block">
@@ -354,18 +362,11 @@
               <ul>
                 <li>Bachelor of Information Technology.</li>
                 <li>Enterprise Software Development Major.</li>
-                <li>2022 &rarr; Present.</li>
-                <li>Graduating July 2026.</li>
+                <li>2022 &rarr; 2026.</li>
+                <li>Graduated July 2026.</li>
               </ul>
             </div>
           </div>
-        </div>
-        <div class="block">
-          <h2>Prior Work as a Chef:</h2>
-          <ul>
-            <li>I'm a qualified chef and worked in hospitality for three years before starting my degree.</li>
-            <li>I really value the teamwork, and conflict resolution skills I gained working in hospitality.</li>
-          </ul>
         </div>
       </div>
     </div>
