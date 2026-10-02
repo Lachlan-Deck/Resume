@@ -39,133 +39,52 @@
       }
 
       /* gruvbox theme colors */
-
-      .red {
-        color: var(--red);
-      }
-
-      .green {
-        color: var(--green);
-      }
-
-      .yellow {
-        color: var(--yellow);
-      }
-
-      .blue {
-        color: var(--blue);
-      }
-
-      .purple {
-        color: var(--purple);
-      }
-
-      .aqua {
-        color: var(--aqua);
-      }
-
-      .gray {
-        color: var(--gray);
-      }
-
-      .orange {
-        color: var(--orange);
-      }
+      .red { color: var(--red); }
+      .green { color: var(--green); }
+      .yellow { color: var(--yellow); }
+      .blue { color: var(--blue); }
+      .purple { color: var(--purple); }
+      .aqua { color: var(--aqua); }
+      .gray { color: var(--gray); }
+      .orange { color: var(--orange); }
 
       /* Dim Colors */
-
-      .red-dim {
-        color: var(--red-dim);
-      }
-
-      .green-dim {
-        color: var(--green-dim);
-      }
-
-      .yellow-dim {
-        color: var(--yellow-dim);
-      }
-
-      .blue-dim {
-        color: var(--blue-dim);
-      }
-
-      .purple-dim {
-        color: var(--purple-dim);
-      }
-
-      .aqua-dim {
-        color: var(--aqua-dim);
-      }
-
-      .gray-dim {
-        color: var(--gray-dim);
-      }
-
-      .orange-dim {
-        color: var(--orange-dim);
-      }
+      .red-dim { color: var(--red-dim); }
+      .green-dim { color: var(--green-dim); }
+      .yellow-dim { color: var(--yellow-dim); }
+      .blue-dim { color: var(--blue-dim); }
+      .purple-dim { color: var(--purple-dim); }
+      .aqua-dim { color: var(--aqua-dim); }
+      .gray-dim { color: var(--gray-dim); }
+      .orange-dim { color: var(--orange-dim); }
 
       /* Foreground Colors */
-
-      .fg {
-        color: var(--fg);
-      }
-
-      .fg1 {
-        color: var(--fg1);
-      }
-
-      .fg2 {
-        color: var(--fg2);
-      }
-
-      .fg3 {
-        color: var(--fg3);
-      }
-
-      .fg4 {
-        color: var(--fg4);
-      }
+      .fg { color: var(--fg); }
+      .fg1 { color: var(--fg1); }
+      .fg2 { color: var(--fg2); }
+      .fg3 { color: var(--fg3); }
+      .fg4 { color: var(--fg4); }
 
       /* Background Colors */
+      .bg-hard { color: var(--bg_h); }
+      .bg { color: var(--bg); }
+      .bg-soft { color: var(--bg_s); }
+      .bg1 { color: var(--bg1); }
+      .bg2 { color: var(--bg2); }
+      .bg3 { color: var(--bg3); }
+      .bg4 { color: var(--bg4); }
 
-      .bg-hard {
-        color: var(--bg_h);
-      }
-
-      .bg {
-        color: var(--bg);
-      }
-
-      .bg-soft {
-        color: var(--bg_s);
-      }
-
-      .bg1 {
-        color: var(--bg1);
-      }
-
-      .bg2 {
-        color: var(--bg2);
-      }
-
-      .bg3 {
-        color: var(--bg3);
-      }
-
-      .bg4 {
-        color: var(--bg4);
-      }
       * {
         box-sizing: border-box;
       }
+
       .page-bg {
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
         background: #282828;
         z-index: -1;
       }
+
       body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -175,39 +94,38 @@
       }
 
       .container {
-        display: flex;
-        flex-direction: row;
+        display: block;
         max-width: 1000px;
         margin: 0 auto;
-        background: var(--bg);
         padding: 20px;
-      }
-
-      .col1 {
-        width: 50%;
-        padding: 20px;
-        border-right: 1px solid var(--bg2);
-        background-color: var(--bg_s);
-      }
-
-      .col2 {
-        width: 50%;
-        padding: 20px;
-        background-color: var(--bg);
+        
+        /* CSS Multi-column layout */
+        column-count: 2;
+        column-gap: 40px;
+        column-rule: 1px solid var(--bg2);
+        
+        /* Simulates the col1 and col2 background colors for web view */
+        background: linear-gradient(to right, var(--bg_s) 50%, var(--bg) 50%);
       }
 
       h1 {
         margin-top: 0;
         font-size: 26px;
         color: var(--green);
+        /* Keep header at the top or flow nicely */
+        break-after: avoid;
+        page-break-after: avoid;
       }
 
       h2 {
+        margin-top: 15px;
         margin-bottom: 10px;
         color: var(--purple);
         font-size: 18px;
         border-bottom: 1px solid var(--bg3);
         padding-bottom: 4px;
+        break-after: avoid;
+        page-break-after: avoid;
       }
 
       ul {
@@ -231,172 +149,180 @@
       a {
         color: var(--green);
         text-decoration: none;
+        word-break: break-all;
       }
 
       a:hover {
         text-decoration: underline;
       }
     
-    @page {
-      size: A4;     
-      margin: 0; 
-    }
+      @page {
+        size: A4;     
+        margin: 0; /* Allow the background color to bleed to the edge of the paper */
+      }
     
-    @media print {
-        .body{
-            background: var(--bg) !important;
+      @media print {
+        html, body {
+          background: var(--bg) !important;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
         }
+
         .container {
-          display: flex !important;
-          flex-direction: row !important;
           width: 100%;
           max-width: 100%;
+          padding: 10mm 10mm; 
+          box-sizing: border-box;
+          background: var(--bg) !important; 
+          
+          column-count: 2;
+          column-gap: 20px;
         }
-
-        .col1, .col2 {
-          width: 50% !important;
-          border: none !important;
-          padding: 10px;
+      }
+      @media (max-width: 768px) {
+        .container {
+          column-count: 1;
+          column-rule: none;
+          background: var(--bg); /* Solid background on mobile */
         }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-    }
-    
-    html, body {
-      background: var(--bg) !important;
-      print-color-adjust: exact;
-    }
-    .col1, .col2 {
-      width: 100%;
-      border: none;
-    }
-  }
+      }
     </style>
   </head>
   <body>
     <div class="page-bg"></div>
     <div class="container">
-      <div class="col1">
-        <h1>Lachlan Deck</h1>
-        <div class="block">
-        </div>
-          <h2>Currently: Dice rolling web app</h2>
-          <a href="https://github.com/Lachlan-Deck/T_TTRPG">
-           https://github.com/Lachlan-Deck/T_TTRPG 
-          </a>
-          <br>
-          <strong>tech:</strong>
-          Elixir, React TS frontend.
-          <br>
-          <strong>Project: </strong>
-          I have done a few React full-stack apps in the past, but it was a while ago (RDBMS, TypeORM, and Mongo stuff) and I want to brush up on my skills. I had just come to the Elixir meetups to I wrote the dice endpoints in elixir with Absinth/plug, and did the frontend in React. Next step is to do a frontend in Pheonix and LiveView, and learn more about Iframes.
-          <br>
-          
-          <h2>RMIT – Cloud computing project</h2>
-          <a href="https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project">
-          GitHub Link:
-          </a>
-          <br>
-          <strong>context:</strong> (Team of 3) Technical project, our team was tasked with delivering a frontend for a music library, and a backend implementation on 3 different technologies (EC2, ECS, and Lambda).
-          <br>
-          <strong>tech:</strong>
-          EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS
-          <br>
-          <strong>technical impact:</strong> I implemented the frontend UI for browsing music with filters, and logging in/out. I delivered the EC2 backend and the deployment pipeline for all 3 backends. I used Ansible to install the software, clone the repo, bootstrap the Nginx reverse proxy, get an HTTPS cert with Certbot and Let's Encrypt, and then deploy the Nginx HTTPS reverse proxy. The frontend was static HTML, and I added a build step to the pipeline to sync the HTML to S3 for each build, which would also insert the AWS user's ID so that the buckets would be unique for each team member.
-          <br>
-          <strong>outcome: </strong> This was a challenging project involving many new technologies that the group needed to learn and teach each other. We received a High Distinction for our work and were able to deliver on additional features like a real HTTPS server (using DuckDNS), a fully automated deployment pipeline, and the ability for the whole team to simultaneously deploy with no name conflicts.
-          <br>
-          <br>
-          
-          <h2>RMIT - IoT project</h2>
-          <a href="https://github.com/Lachlan-Deck/RMIT_IOT_project">
-          GitHub Link:
-          </a>
-          <br>
-          <strong>context:</strong> (Team of 4) This was a technical project for an IoT development course. The task was to build 3 applications that would form a room booking system for study spaces in a building. This was implemented with locally hosted Flask apps on Raspberry Pis, simulating phones, room computers, and such.
-          <br>
-          <strong>tech:</strong>
-          Raspberry Pis, Python, Postgres, MQTT, Nix Flakes.
-          <br>
-          <strong>technical impact:</strong> I implemented a testing, deployment, and development environment management system for the team using Nix flakes. I built the booking system so that a client could view room availabilities in a web interface, make bookings, have their bookings confirmed and be sent a code for sign-in, sign into a room, and have the room's status change from vacant to occupied. This system was implemented across 3 different applications, using an MQTT server for which I wrote the listeners. I also implemented the Postgres database the "master" would use to store the state of the system, using a Postgres trigger to manage booking updates across tables.
-          <br>
-          <strong>outcome: </strong>This was a fun project. Deploying each other's work and testing the functionality was challenging and required a way of deploying and testing the 3 applications locally in a way we could reproduce on a Pi. Some team members had challenging personal circumstances and needed support during development as well. However, we received a high grade and gained valuable experience working in teams with Nix shells, MQTT, and Postgres in a complex application.
+      
+      <h1>Lachlan Deck</h1>
+      
+      <div class="block">
+        <h2>Currently: Dice rolling web app</h2>
+        <a href="https://github.com/Lachlan-Deck/T_TTRPG">
+          https://github.com/Lachlan-Deck/T_TTRPG 
+        </a>
+        <br>
+        <strong>tech:</strong>
+        Elixir, React TS frontend.
+        <br>
+        <strong>Project: </strong>
+        I have done a few React full-stack apps in the past, but it was a while ago (RDBMS, TypeORM, and Mongo stuff) and I want to brush up on my skills. I had just come to the Elixir meetups to I wrote the dice endpoints in elixir with Absinth/plug, and did the frontend in React. Next step is to do a frontend in Pheonix and LiveView, and learn more about Iframes.
       </div>
-      <div class="col2">
-        <div class="block">
-          <h2>Personal Information</h2>
-          <ul>
-            <li>Based in: Melbourne</li>
-            <li>Phone: Provided on request (via Email)</li>
-            <li>Email:
-              <a href="mailto:lachlan@decks-awash.com">
-                lachlan@deck-awash.com
-              </a></li>
-            <li>LinkedIn:
-              <a href="https://www.linkedin.com/in/lachlan-deck-653632253/">
-              https://www.linkedin.com/in/lachl...
-              </a>
-            <li>GitHub-personal:
-              <a href="https://github.com/Lachlan-Deck/">github.com/Lachlan-Deck/</a></li>
-            <li>GitHub-RMIT:
-              <a href="https://github.com/lachlan-deckRMIT/">github.com/lachlan-deckRMIT/</a></li>
-          </ul>
-        </div>
-        <div class="block">
-          <h2>References</h2>
-          <p>Provided on request (via Email)</p>
-        </div>
-        <div class="block">
-          <h2>Culture fit</h2>
-          <ul>
-            <li>
-            I'm primarily interested in learning as much as I can about software engineering, CI/CD, and infra as I can
-            </li>
-            <li>
-            I understand the importance of asking good questions and respect the time others take mentoring me.
-            </li>
-            <li>
-            I enjoy working on problems with people, particularly learning their ways of doing things that I might not have otherwise considered
-            </li>
-            <li>
-            Since I was 17 I've played d&d with adults in the industry, and it's taught me a lot about navigating social challenges, apologising for mistakes, and growing as a person.
-            </li>
-          </ul>
-        </div>
-        <div class="block">
-          <h2>Volunteering as Student Mentor</h2>
-          <ul>
-            <li>I was selected for the Vygo/RMIT student mentor program based on strong academic performance.</li>
-            <li>Provided support to students by answering coursework questions and mentoring them in web development.</li>
-            <li>I developed skills in triaging student issues and fostered a non-judgmental, supportive environment for students to discuss and work through challenges and uncertainties.</li>
-          </ul>
-          <div class="block">
-            <div class="block">
-          <br>
-          <br>
-          <br>
-              <h2>Education</h2>
-              <ul>
-                <li>RMIT: Bachelor of Information Technology.</li>
-                <li>Enterprise Software Development Major.</li>
-                <li>2022 &rarr; 2026. (Graduated July)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-          <h2>RMIT – Final-year industry project</h2>
-          <strong>context:</strong> (Team of 4) This was an internal project for the RMIT course QA team. Its purpose was to scrape unformatted and changing information on a webpage and convert it into structured Excel documents.
-          <br>
-          <strong>tech:</strong>
-          EC2, S3, Bedrock, Docker.
-          <br>
-          <strong>technical impact:</strong> I spiked and later implemented a change to the web-scraping architecture so that the LLM work had minimal token requirements, the outputs would be type-safe, and the pipeline could be tested separately. I also implemented a two-pass approach with a smaller, cheaper model that reduced our running costs and sped up the pipeline.
-          <br>
-          <strong>outcome: </strong>The clients were very happy with the work we did, and our team received a HD for the project work. My work reduced input tokens by ~66%, delivered a testing harness for the system, delivered type-safe LLM output with Pydantic and LangChain, and reduced costs by using cheaper models for non-reasoning LLM workloads.
+
+      <div class="block">
+        <h2>RMIT – Cloud computing project</h2>
+        <a href="https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project">
+          GitHub Link
+        </a>
+        <br>
+        <strong>context:</strong> (Team of 3) Technical project, our team was tasked with delivering a frontend for a music library, and a backend implementation on 3 different technologies (EC2, ECS, and Lambda).
+        <br>
+        <strong>tech:</strong>
+        EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS
+        <br>
+        <strong>technical impact:</strong> I implemented the frontend UI for browsing music with filters, and logging in/out. I delivered the EC2 backend and the deployment pipeline for all 3 backends. I used Ansible to install the software, clone the repo, bootstrap the Nginx reverse proxy, get an HTTPS cert with Certbot and Let's Encrypt, and then deploy the Nginx HTTPS reverse proxy. The frontend was static HTML, and I added a build step to the pipeline to sync the HTML to S3 for each build, which would also insert the AWS user's ID so that the buckets would be unique for each team member.
+        <br>
+        <strong>outcome: </strong> This was a challenging project involving many new technologies that the group needed to learn and teach each other. We received a High Distinction for our work and were able to deliver on additional features like a real HTTPS server (using DuckDNS), a fully automated deployment pipeline, and the ability for the whole team to simultaneously deploy with no name conflicts.
       </div>
+
+
+      <div class="block">
+        <h2>Personal Information</h2>
+        <ul>
+          <li>Based in: Melbourne</li>
+          <li>Phone: Provided on request (via Email)</li>
+          <li>Email:
+            <a href="mailto:lachlan@decks-awash.com">
+              lachlan@deck-awash.com
+            </a>
+          </li>
+          <li>LinkedIn:
+            <a href="https://www.linkedin.com/in/lachlan-deck-653632253/">
+            https://www.linkedin.com/in/lachl...
+            </a>
+          </li>
+          <li>GitHub-personal:
+            <a href="https://github.com/Lachlan-Deck/">github.com/Lachlan-Deck/</a>
+          </li>
+          <li>GitHub-RMIT:
+            <a href="https://github.com/lachlan-deckRMIT/">github.com/lachlan-deckRMIT/</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2>References</h2>
+        <p>Provided on request (via Email)</p>
+      </div>
+
+      <div class="block">
+        <h2>Culture fit</h2>
+        <ul>
+          <li>I'm primarily interested in learning as much as I can about software engineering, CI/CD, and infra as I can</li>
+          <li>I understand the importance of asking good questions and respect the time others take mentoring me.</li>
+          <li>I enjoy working on problems with people, particularly learning their ways of doing things that I might not have otherwise considered</li>
+          <li>Since I was 17 I've played d&d with adults in the industry, and it's taught me a lot about navigating social challenges, apologising for mistakes, and growing as a person.</li>
+        </ul>
+      </div>
+
+
+      <div class="block">
+        <h2>Education</h2>
+        <ul>
+          <li>RMIT: Bachelor of Information Technology.</li>
+          <li>Enterprise Software Development Major.</li>
+          <li>2022 &rarr; 2026. (Graduated July)</li>
+        </ul>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="block">
+        <h2>Volunteering as Student Mentor</h2>
+        <ul>
+          <li>I was selected for the Vygo/RMIT student mentor program based on strong academic performance.</li>
+          <li>Provided support to students by answering coursework questions and mentoring them in web development.</li>
+          <li>I developed skills in triaging student issues and fostered a non-judgmental, supportive environment for students to discuss and work through challenges and uncertainties.</li>
+        </ul>
+      </div>
+      
+      <div class="block">
+        <h2>RMIT - IoT project</h2>
+        <a href="https://github.com/Lachlan-Deck/RMIT_IOT_project">
+          GitHub Link
+        </a>
+        <br>
+        <strong>context:</strong> (Team of 4) This was a technical project for an IoT development course. The task was to build 3 applications that would form a room booking system for study spaces in a building. This was implemented with locally hosted Flask apps on Raspberry Pis, simulating phones, room computers, and such.
+        <br>
+        <strong>tech:</strong>
+        Raspberry Pis, Python, Postgres, MQTT, Nix Flakes.
+        <br>
+        <strong>technical impact:</strong> I implemented a testing, deployment, and development environment management system for the team using Nix flakes. I built the booking system so that a client could view room availabilities in a web interface, make bookings, have their bookings confirmed and be sent a code for sign-in, sign into a room, and have the room's status change from vacant to occupied. This system was implemented across 3 different applications, using an MQTT server for which I wrote the listeners. I also implemented the Postgres database the "master"
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        would use to store the state of the system, using a Postgres trigger to manage booking updates across tables.
+        <br>
+        <strong>outcome: </strong>This was a fun project. Deploying each other's work and testing the functionality was challenging and required a way of deploying and testing the 3 applications locally in a way we could reproduce on a Pi. Some team members had challenging personal circumstances and needed support during development as well. However, we received a high grade and gained valuable experience working in teams with Nix shells, MQTT, and Postgres in a complex application.
+      </div>
+
+      <div class="block">
+        <h2>RMIT – Final-year industry project</h2>
+        <strong>context:</strong> (Team of 4) This was an internal project for the RMIT course QA team. Its purpose was to scrape unformatted and changing information on a webpage and convert it into structured Excel documents.
+        <br>
+        <strong>tech:</strong>
+        EC2, S3, Bedrock, Docker.
+        <br>
+        <strong>technical impact:</strong> I spiked and later implemented a change to the web-scraping architecture so that the LLM work had minimal token requirements, the outputs would be type-safe, and the pipeline could be tested separately. I also implemented a two-pass approach with a smaller, cheaper model that reduced our running costs and sped up the pipeline.
+        <br>
+        <strong>outcome: </strong>The clients were very happy with the work we did, and our team received a HD for the project work. My work reduced input tokens by ~66%, delivered a testing harness for the system, delivered type-safe LLM output with Pydantic and LangChain, and reduced costs by using cheaper models for non-reasoning LLM workloads.
+      </div>
+      
     </div>
   </body>
 </html>
