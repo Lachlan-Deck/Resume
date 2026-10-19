@@ -195,16 +195,16 @@
       <h1>Lachlan Deck</h1>
       
       <div class="block">
-        <h2>Currently: Dice rolling web app</h2>
+        <h2>Side Project: d&d game engine</h2>
         <a href="https://github.com/Lachlan-Deck/T_TTRPG">
           https://github.com/Lachlan-Deck/T_TTRPG 
         </a>
         <br>
         <strong>tech:</strong>
-        Elixir, React TS frontend.
+        Elixir, Phoenix, React TS frontend.
         <br>
         <strong>Project: </strong>
-        I have done a few React full-stack apps in the past, but it was a while ago (RDBMS, TypeORM, and Mongo stuff) and I want to brush up on my skills. I had just come to the Elixir meetups to I wrote the dice endpoints in elixir with Absinth/plug, and did the frontend in React. Next step is to do a frontend in Pheonix and LiveView, and learn more about Iframes.
+        I have done a few React full-stack apps in the past, (RDBMS, TypeORM, and Mongo stuff) and I want to brush up on my skills. I picked elixir for fun, I wrote the dice endpoints in elixir with Absinth/plug, and did the frontend in React. Then made a Phoenix live view frontend to get the hang of a live websocket reactive frontend, both frontends use graphql. Recently Ive been implementing an event pipeline and doing the backend with Entity, Component System architecture, this will allow me to implement complex features like buff systems that apply to rolls made by character entities. Check out my repo for more info! I'm proud of my PR's.
       </div>
 
       <div class="block">
@@ -263,6 +263,9 @@
         </ul>
       </div>
 
+      <br>
+      <br>
+      <br>
 
       <div class="block">
         <h2>Education</h2>
@@ -272,11 +275,7 @@
           <li>2022 &rarr; 2026. (Graduated July)</li>
         </ul>
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      
       <div class="block">
         <h2>Volunteering as Student Mentor</h2>
         <ul>
@@ -297,15 +296,10 @@
         <strong>tech:</strong>
         Raspberry Pis, Python, Postgres, MQTT, Nix Flakes.
         <br>
-        <strong>technical impact:</strong> I implemented a testing, deployment, and development environment management system for the team using Nix flakes. I built the booking system so that a client could view room availabilities in a web interface, make bookings, have their bookings confirmed and be sent a code for sign-in, sign into a room, and have the room's status change from vacant to occupied. This system was implemented across 3 different applications, using an MQTT server for which I wrote the listeners. I also implemented the Postgres database the "master"
+        <strong>technical impact:</strong> I implemented a testing, deployment, and development environment management system for the team using Nix flakes. I built the booking system so that a client could view room availabilities in a web interface, make bookings, have their bookings confirmed and be sent a code for sign-in, sign into a room, and have the room's status change from vacant to occupied. This system was implemented across 3 different applications, using an MQTT
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        server for which I wrote the listeners. I also implemented the Postgres database the "master"
         would use to store the state of the system, using a Postgres trigger to manage booking updates across tables.
         <br>
         <strong>outcome: </strong>This was a fun project. Deploying each other's work and testing the functionality was challenging and required a way of deploying and testing the 3 applications locally in a way we could reproduce on a Pi. Some team members had challenging personal circumstances and needed support during development as well. However, we received a high grade and gained valuable experience working in teams with Nix shells, MQTT, and Postgres in a complex application.
