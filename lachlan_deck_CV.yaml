@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
 cv:
   name: Lachlan Deck
-  headline:
+  headline: Graduate Infrastructure Engineer
   location: Melbourne, Australia
   email: notmyemail@gmail.com
   photo:
@@ -17,58 +17,62 @@ cv:
   custom_connections:
   sections:
     skills:
+      - label: Infrastructure
+        details: Linux, Docker, Synology NAS (Container Manager), Nginx, Ansible, Terraform, Nix Flakes, GitHub Actions, DNS
+      - label: Cloud
+        details: AWS (EC2, S3, Fargate, Lambda, API Gateway, Bedrock)
       - label: Languages
-        details: Python, TypeScript, Elixir, javascript, html, css, SQL 
-      - label: Cloud & Infra
-        details: AWS (EC2, S3, Fargate, Lambda, API Gateway, Bedrock), Terraform, Ansible, GitHub Actions, Docker, Nix Flakes, Nginx, Linux
+        details: Python, TypeScript, JavaScript, Elixir, SQL, HTML, CSS
       - label: Frameworks & Data
-        details: React, Phoenix, Flask, GraphQL, Postgres, MQTT, LangChain, Pydantic, NodeJS, Playwright
+        details: React, Phoenix, Flask, NodeJS, GraphQL, Postgres, MQTT, LangChain, Pydantic, Playwright
     projects:
-      - name: D&D Game Engine API 
+      - name: Home Lab
         date:
         start_date:
         end_date:
-        location: Personal project [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
-        summary: Learning Elixir for fun. **Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe).
+        location: Personal project
+        summary: "**Stack:** Synology NAS, Docker, Container Manager."
         highlights:
-          - Wrote the dice endpoints in Elixir, then built both a React frontend and a Phoenix LiveView (websocket) frontend over the same GraphQL API. I'm working in on this project in Git trunk, PR's use a template and are squash merged into main.
-          - Implementing an event driven system using Entity Component System architecture to support complex features such as buffs that listen for relevent rolls.
-          - Implementing a parser for Roll20's /Roll syntax, and extending its functionality to allow characters to target other characters with damage, healing, etc.
-      - name: Final-Year Industry Project
-        date:
-        start_date:
-        end_date:
-        location: RMIT Team of 4
-        summary: Internal tool for the RMIT course QA team that scrapes unformatted, changing web pages into structured Excel documents. **Stack:** EC2, S3, Bedrock, Docker. 
-        highlights:
-          - Redesigned the scraping architecture using playwright, cutting input tokens by ~66%. Outputs were type-safe (Pydantic, LangChain) and the pipeline was testable separately.
-          - Added a two-pass approach with a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline. I attended a classifier model workshop recently, and I would use that technology for this now.
-          - The environment was complicated so I built sharable demo environments with nix flakes so we could demonstrate impact to the clients, who were very happy with the results; we recieved an HD.
-      - name: Cloud Computing Project 
+          - Deploy Docker images through Synology's Container Manager to self-host web apps on my NAS
+      - name: Cloud Computing Project
         date:
         start_date:
         end_date:
         location: RMIT Team of 3 [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
         summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS."
         highlights:
-          - Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda), using Ansible to install software, bootstrap an Nginx reverse proxy and issue an HTTPS cert with Certbot and Let's Encrypt
-          - Built the music-browsing frontend (filters, login/logout) and a pipeline step that syncs the static site to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts
-          - Received a High Distinction
-      - name: IoT Project 
+          - Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda). Ansible installed the software, bootstrapped an Nginx reverse proxy and issued an HTTPS cert with Certbot and Let's Encrypt
+          - Pipeline syncs the static frontend to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts. Received a High Distinction
+      - name: IoT Project
         date:
         start_date:
         end_date:
         location: RMIT Team of 4 [GitHub](https://github.com/Lachlan-Deck/RMIT_IOT_project)
         summary: "**Stack:** Raspberry Pis, Python, Flask, Postgres, MQTT, Nix Flakes. Room booking system for study spaces, split across 3 applications."
         highlights:
-          - Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi.
-          - Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables
-          - Received a high grade
+          - Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi
+          - Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables. Received a high grade
+      - name: Final-Year Industry Project
+        date:
+        start_date:
+        end_date:
+        location: RMIT Team of 4
+        summary: "Internal tool for the RMIT course QA team that scrapes changing web pages into structured Excel documents. **Stack:** EC2, S3, Bedrock, Docker."
+        highlights:
+          - Redesigned the scraping architecture using Playwright, cutting LLM input tokens by ~66%, with type-safe outputs (Pydantic, LangChain) and a separately testable pipeline
+          - Added a two-pass approach with a smaller, cheaper model, reducing running costs. Built shareable Nix flake demo environments for the clients, who were very happy; we received a HD
+      - name: "D&D Game Engine API"
+        date:
+        start_date:
+        end_date:
+        location: Personal project [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
+        summary: "**Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe)."
+        highlights:
+          - Built dice endpoints in Elixir with both a React and a Phoenix LiveView frontend over one GraphQL API. Work in Git trunk with templated PRs, squash merged into main
+          - Implementing an event-driven Entity Component System and a parser for Roll20's /roll syntax
     Culture Fit:
-      - I'm primarily interested in learning as much as I can about software engineering, CI/CD, and infra as I can
-      - I understand the importance of asking good questions and respect the time others take mentoring me.
-      - I enjoy working on problems with people, particularly learning their ways of doing things that I might not have seen before
-      - Since I was 17 I've played Dungeons & Dragons with adults in the industry, and it's taught me a lot about navigating social challenges, apologising for mistakes, and growing as a person.
+      - I want to learn as much as I can about software engineering, CI/CD and infrastructure. I ask good questions, respect the time others spend mentoring me, and enjoy learning how other people approach problems.
+      - Since I was 17 I've played Dungeons & Dragons with adults in the industry, which taught me a lot about collaborating, navigating social challenges and apologising for mistakes.
     education:
       - institution: RMIT University
         area: Enterprise Software Development
@@ -87,8 +91,7 @@ cv:
         location:
         summary:
         highlights:
-          - Selected for the mentor program on strong academic performance; answered coursework questions and mentored students in web development
-          - Triaged student issues and fostered a non-judgmental space to work through challenges
+          - Selected on strong academic performance; answered coursework questions, mentored students in web development and triaged their issues in a supportive, non-judgmental space
 design:
   theme: engineeringresumes
   page:
