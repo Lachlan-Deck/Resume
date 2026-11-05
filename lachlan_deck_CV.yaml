@@ -29,7 +29,7 @@ cv:
         start_date:
         end_date:
         location: Personal project [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
-        summary: "**Tech:** Elixir, Phoenix, React TS, GraphQL (Absinthe)."
+        summary: Learning Elixir for fun. **Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe).
         highlights:
           - Wrote the dice endpoints in Elixir, then built both a React frontend and a Phoenix LiveView (websocket) frontend over the same GraphQL API. I'm working in on this project in Git trunk, PR's use a template and are squash merged into main.
           - Implementing an event driven system using Entity Component System architecture to support complex features such as buffs that listen for relevent rolls.
@@ -39,7 +39,7 @@ cv:
         start_date:
         end_date:
         location: RMIT Team of 4
-        summary: "**Tech:** EC2, S3, Bedrock, Docker. Internal tool for the RMIT course QA team that scrapes unformatted, changing web pages into structured Excel documents."
+        summary: Internal tool for the RMIT course QA team that scrapes unformatted, changing web pages into structured Excel documents. **Stack:** EC2, S3, Bedrock, Docker. 
         highlights:
           - Redesigned the scraping architecture using playwright, cutting input tokens by ~66%. Outputs were type-safe (Pydantic, LangChain) and the pipeline was testable separately.
           - Added a two-pass approach with a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline. I attended a classifier model workshop recently, and I would use that technology for this now.
@@ -49,7 +49,7 @@ cv:
         start_date:
         end_date:
         location: RMIT Team of 3 [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
-        summary: "**Tech:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS."
+        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS."
         highlights:
           - Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda), using Ansible to install software, bootstrap an Nginx reverse proxy and issue an HTTPS cert with Certbot and Let's Encrypt
           - Built the music-browsing frontend (filters, login/logout) and a pipeline step that syncs the static site to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts
@@ -59,7 +59,7 @@ cv:
         start_date:
         end_date:
         location: RMIT Team of 4 [GitHub](https://github.com/Lachlan-Deck/RMIT_IOT_project)
-        summary: "**Tech:** Raspberry Pis, Python, Flask, Postgres, MQTT, Nix Flakes. Room booking system for study spaces, split across 3 applications."
+        summary: "**Stack:** Raspberry Pis, Python, Flask, Postgres, MQTT, Nix Flakes. Room booking system for study spaces, split across 3 applications."
         highlights:
           - Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi.
           - Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables
