@@ -1,7 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
 cv:
   name: Lachlan Deck
-  headline: Graduate Infrastructure Engineer
+  headline:
   location: Melbourne, Australia
   email: notmyemail@gmail.com
   photo:
@@ -16,63 +17,63 @@ cv:
       username: lachlan-deckRMIT
   custom_connections:
   sections:
+    summary:
+      - "Recent IT graduate (RMIT, July 2026) who likes building practical, automated solutions and solving cool problems. I built an LLM data-extraction pipeline for a real client, multiple API-driven apps, automated deployment pipelines, and I'm keen to learn fast alongside an AI and innovation team."
     skills:
-      - label: Infrastructure
-        details: Linux, Docker, Synology NAS (Container Manager), Nginx, Ansible, Terraform, Nix Flakes, GitHub Actions, DNS
-      - label: Cloud
-        details: AWS (EC2, S3, Fargate, Lambda, API Gateway, Bedrock)
+      - label: AI & Automation
+        details: "AWS Bedrock, LangChain, Pydantic (structured LLM output), Playwright, GitHub Actions, Ansible, Terraform"
       - label: Languages
-        details: Python, TypeScript, JavaScript, Elixir, SQL, HTML, CSS
+        details: "Python, TypeScript, JavaScript, Elixir, SQL, HTML, CSS"
       - label: Frameworks & Data
-        details: React, Phoenix, Flask, NodeJS, GraphQL, Postgres, MQTT, LangChain, Pydantic, Playwright
+        details: "React, NodeJS, Phoenix, Flask, GraphQL, Postgres, MQTT"
+      - label: Cloud & Infra
+        details: "AWS (EC2, S3, Fargate, Lambda, API Gateway), Docker, Nix Flakes, Nginx, Linux"
     projects:
+      - name: Final-Year Industry Project
+        date:
+        start_date:
+        end_date:
+        location: RMIT, Team of 4
+        summary: "Internal tool for the RMIT course QA team that scrapes unformatted, changing web pages into structured Excel documents. **Stack:** Python, Playwright, Bedrock, LangChain, Pydantic, EC2, S3, Docker."
+        highlights:
+          - "Redesigned the scraping architecture around Playwright so LLM calls needed far fewer tokens, cutting input tokens by ~66%, with type-safe outputs (Pydantic, LangChain) and a pipeline that could be tested separately."
+          - "Added a two-pass approach using a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline. Having since attended a classifier model workshop, I'd apply that here next."
+          - "Built shareable demo environments with Nix flakes to show impact to the clients, who were very happy with the results; the team received a HD."
+      - name: D&D Game Engine API
+        date:
+        start_date:
+        end_date:
+        location: Personal project, [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
+        summary: "Learning Elixir for fun. **Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe)."
+        highlights:
+          - "Wrote the dice endpoints in Elixir, then built both a React frontend and a Phoenix LiveView (websocket) frontend over the same GraphQL API. Work follows trunk-based Git with PR templates and squash merges."
+          - "Implementing an event-driven Entity Component System so features such as buffs can listen for relevant rolls, plus a parser for Roll20's /roll syntax extended to let characters target others with damage and healing."
+      - name: Cloud Computing Project
+        date:
+        start_date:
+        end_date:
+        location: RMIT, Team of 3, [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
+        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS."
+        highlights:
+          - "Delivered the EC2 backend and an automated deployment pipeline for all 3 backends (EC2, ECS, Lambda), using Ansible to install software, bootstrap an Nginx reverse proxy and issue an HTTPS cert with Certbot and Let's Encrypt."
+          - "Built the frontend and a pipeline step that syncs the static site to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts. Received a High Distinction."
+      - name: IoT Project
+        date:
+        start_date:
+        end_date:
+        location: RMIT, Team of 4, [GitHub](https://github.com/Lachlan-Deck/RMIT_IOT_project)
+        summary: "Room booking system split across 3 applications. **Stack:** Raspberry Pis, Python, Flask, Postgres, MQTT, Nix Flakes."
+        highlights:
+          - "Integrated the 3 applications over MQTT (wrote the listeners) and built the Postgres master database, using a trigger to manage booking updates across tables."
+          - "Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi. Received a high grade."
       - name: Home Lab
         date:
         start_date:
         end_date:
         location: Personal project
-        summary: "**Stack:** Synology NAS, Docker, Container Manager."
+        summary:
         highlights:
-          - Deploy Docker images through Synology's Container Manager to self-host web apps on my NAS
-      - name: Cloud Computing Project
-        date:
-        start_date:
-        end_date:
-        location: RMIT Team of 3 [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
-        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS."
-        highlights:
-          - Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda). Ansible installed the software, bootstrapped an Nginx reverse proxy and issued an HTTPS cert with Certbot and Let's Encrypt
-          - Pipeline syncs the static frontend to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts. Received a High Distinction
-      - name: IoT Project
-        date:
-        start_date:
-        end_date:
-        location: RMIT Team of 4 [GitHub](https://github.com/Lachlan-Deck/RMIT_IOT_project)
-        summary: "**Stack:** Raspberry Pis, Python, Flask, Postgres, MQTT, Nix Flakes. Room booking system for study spaces, split across 3 applications."
-        highlights:
-          - Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi
-          - Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables. Received a high grade
-      - name: Final-Year Industry Project
-        date:
-        start_date:
-        end_date:
-        location: RMIT Team of 4
-        summary: "Internal tool for the RMIT course QA team that scrapes changing web pages into structured Excel documents. **Stack:** EC2, S3, Bedrock, Docker."
-        highlights:
-          - Redesigned the scraping architecture using Playwright, cutting LLM input tokens by ~66%, with type-safe outputs (Pydantic, LangChain) and a separately testable pipeline
-          - Added a two-pass approach with a smaller, cheaper model, reducing running costs. Built shareable Nix flake demo environments for the clients, who were very happy; we received a HD
-      - name: "D&D Game Engine API"
-        date:
-        start_date:
-        end_date:
-        location: Personal project [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
-        summary: "**Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe)."
-        highlights:
-          - Built dice endpoints in Elixir with both a React and a Phoenix LiveView frontend over one GraphQL API. Work in Git trunk with templated PRs, squash merged into main
-          - Implementing an event-driven Entity Component System and a parser for Roll20's /roll syntax
-    Culture Fit:
-      - I want to learn as much as I can about software engineering, CI/CD and infrastructure. I ask good questions, respect the time others spend mentoring me, and enjoy learning how other people approach problems.
-      - Since I was 17 I've played Dungeons & Dragons with adults in the industry, which taught me a lot about collaborating, navigating social challenges and apologising for mistakes.
+          - "Deploy Docker images on a Synology NAS using Container Manager to self-host web apps."
     education:
       - institution: RMIT University
         area: Enterprise Software Development
@@ -91,7 +92,7 @@ cv:
         location:
         summary:
         highlights:
-          - Selected on strong academic performance; answered coursework questions, mentored students in web development and triaged their issues in a supportive, non-judgmental space
+          - "Selected on strong academic performance; answered coursework questions and mentored students in web development, triaging issues and keeping the space supportive and non-judgmental."
 design:
   theme: engineeringresumes
   page:
@@ -142,19 +143,5 @@ locale:
   language: english
 settings:
   current_date: today
-  render_command:
-    output_folder: rendercv_output
-    design:
-    locale:
-    typst_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.typ
-    pdf_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.pdf
-    markdown_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.md
-    html_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.html
-    png_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_CV.png
-    dont_generate_markdown: false
-    dont_generate_html: false
-    dont_generate_typst: false
-    dont_generate_pdf: false
-    dont_generate_png: false
   bold_keywords: []
   pdf_title: NAME - CV
