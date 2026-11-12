@@ -17,7 +17,7 @@ cv:
   custom_connections:
   sections:
     summary:
-      - "Software engineering student (RMIT) with hands-on **Python** and **AI** experience, including an LLM pipeline built for a real client. I enjoy turning messy requirements into working solutions, explaining the results clearly, and growing my business analyst skills."
+      - "Recent graduate who genuinely enjoys software, and discussing technical subjects, whether to clients, students I mentor or teammates. I ask good questions, take mentorship seriously, and enjoy picking up other people's ways of working. Avid Dungeons & Dragons player since 17, which has taught me a lot about working through interpersonal challenges, maintaining professional relationships, apologising for mistakes, and personal growth."
     education:
       - institution: RMIT University
         area: Enterprise Software Development
@@ -28,63 +28,65 @@ cv:
         location: Melbourne
         summary:
         highlights:
+    projects:
+      - name: LLM Web-Scraping Pipeline for RMIT QA Team (Capstone Project)
+        date:
+        start_date:
+        end_date:
+        location: RMIT Team of 4
+        summary: "Internal tool that scrapes unformatted, changing web pages into structured Excel documents. **Stack:** Python, AWS Bedrock, EC2, S3, Docker, Playwright."
+        highlights:
+          - "Redesigned the scraping architecture with Playwright so LLM calls needed minimal tokens (input tokens cut by ~66%), with type-safe outputs (Pydantic, LangChain) and a separately testable pipeline, delivered with a testing harness"
+          - "Added a two-pass approach using a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline. I recently attended a classifier model workshop and would apply that technique here now"
+          - "Built shareable demo environments with Nix flakes to show the impact to clients, who were very happy with the results; the team received a HD"
+      - name: Full-Stack Elixir D&D Game API (Personal Project)
+        date:
+        start_date:
+        end_date:
+        location: Personal project [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
+        summary: "Learning Elixir for fun. **Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe)."
+        highlights:
+          - "Wrote the dice endpoints in Elixir, then built both a React frontend and a Phoenix LiveView (websocket) frontend over the same GraphQL API"
+          - "Work is trunk-based, with PR templates and squash merges into main. Implementing an event-driven Entity Component System so features such as buffs can listen for relevant rolls, plus a parser for Roll20's /roll syntax"
+      - name: Music Library AWS CRUD App (Cloud Computing Project)
+        date:
+        start_date:
+        end_date:
+        location: RMIT Team of 3 [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
+        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS, DynamoDB."
+        highlights:
+          - "Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda), using Ansible to install software, bootstrap an Nginx reverse proxy and issue an HTTPS cert with Certbot and Let's Encrypt"
+          - "Built the music-browsing frontend (filters, login/logout) and a pipeline step that syncs the static site to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts; received a High Distinction"
+      - name: Room Booking System on Raspberry Pis (IoT Project)
+        date:
+        start_date:
+        end_date:
+        location: RMIT Team of 4 [GitHub](https://github.com/Lachlan-Deck/RMIT_IOT_project)
+        summary: "Booking system for study spaces, split across 3 applications. **Stack:** Python, Flask, Postgres, MQTT, Nix Flakes, Raspberry Pis."
+        highlights:
+          - "Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi"
+          - "Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables; received a high grade"
     skills:
       - label: Languages
-        details: Python, TypeScript, JavaScript, Elixir, SQL, HTML, CSS
-      - label: AI & Data
-        details: AWS Bedrock, LangChain, Pydantic, Playwright, Postgres, GraphQL
+        details: Python, SQL, TypeScript, JavaScript, Elixir, HTML, CSS
+      - label: AI & Automation
+        details: AWS Bedrock, LangChain, Pydantic, Playwright
+      - label: Practices
+        details: Git, trunk-based development, pull requests, GitHub Actions, testing harnesses
       - label: Cloud & Infra
-        details: AWS (EC2, S3, Fargate, Lambda, API Gateway), Terraform, Ansible, GitHub Actions, Docker, Nix Flakes, Nginx, Linux
-      - label: Frameworks
-        details: React, Flask, Phoenix, NodeJS, MQTT
-    projects:
-      - name: Final-Year Industry Project (AI)
-        date:
-        start_date:
-        end_date:
-        location: RMIT, Team of 4
-        summary: "Client project: an internal tool for the RMIT course QA team that scrapes unformatted, changing web pages into structured Excel documents using LLMs. **Stack:** Python, AWS Bedrock, LangChain, Pydantic, Playwright, EC2, S3, Docker."
-        highlights:
-          - Redesigned the scraping architecture with Playwright, cutting LLM input tokens by ~66%. Outputs were type-safe (Pydantic, LangChain) and the pipeline was testable separately.
-          - Added a two-pass approach with a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline. Recently attended a classifier model workshop and would apply that approach here today.
-          - Built shareable demo environments with Nix flakes to show impact to the clients, who were very happy with the results. Team received a HD.
-      - name: IoT Project
-        date:
-        start_date:
-        end_date:
-        location: RMIT, Team of 4
-        summary: "Room booking system for study spaces, split across 3 applications. **Stack:** Python, Flask, Postgres, MQTT, Raspberry Pis, Nix Flakes. [GitHub](https://github.com/Lachlan-Deck/RMIT_IOT_project)"
-        highlights:
-          - Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables.
-          - Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi. Received a high grade.
-      - name: D&D Game Engine API
-        date:
-        start_date:
-        end_date:
-        location: Personal project
-        summary: "Learning Elixir for fun. **Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe). [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)"
-        highlights:
-          - Wrote the dice endpoints in Elixir, then built both a React frontend and a Phoenix LiveView (websocket) frontend over the same GraphQL API. Work in Git trunk with templated PRs, squash merged into main.
-          - Implementing an event-driven Entity Component System and a parser for Roll20's /roll syntax, extended so characters can target others with damage, healing and buffs.
-      - name: Cloud Computing Project
-        date:
-        start_date:
-        end_date:
-        location: RMIT, Team of 3
-        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS. [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)"
-        highlights:
-          - Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda), with an Nginx HTTPS reverse proxy via Certbot and Let's Encrypt, plus the music-browsing frontend. Received a High Distinction.
+        details: AWS (EC2, S3, Fargate, Lambda, API Gateway), Terraform, Ansible, Docker, Nix Flakes, Nginx, Linux
+      - label: Frameworks & Data
+        details: React, NodeJS, Phoenix, Flask, GraphQL, Postgres, MQTT
     volunteering:
-      - name: Student Mentor, Vygo / RMIT
+      - name: Student Mentor @RMIT
         date:
         start_date:
         end_date:
         location:
         summary:
         highlights:
-          - Selected for the mentor program on strong academic performance; answered coursework questions and mentored students in web development, triaging issues in a non-judgmental, supportive space.
-    about_me:
-      - "I want to learn as much as I can about software engineering, CI/CD and infra, ask good questions, and respect the time of those mentoring me. I enjoy learning how other people approach problems. Since I was 17 I've played Dungeons & Dragons with adults in the industry, which taught me how to navigate social challenges and apologise for mistakes."
+          - "Selected for the mentor program on strong academic performance; answered coursework questions and mentored students in web development"
+          - "Triaged student issues and fostered a non-judgmental space to work through challenges"
 design:
   theme: engineeringresumes
   page:
