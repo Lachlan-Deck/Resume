@@ -17,7 +17,7 @@ cv:
   custom_connections:
   sections:
     summary:
-      - "Recent IT graduate who enjoys working through problems with people and learning how others approach them. I have demonstrated project work to clients, mentored students by triaging their questions in a supportive way, and worked in teams of 3 to 4. I ask good questions, respect the time of those mentoring me, own my mistakes, and want to grow my business analysis skills. Phone and references available on request via email."
+      - "Recent IT graduate who enjoys working with people and learning new skills. I take time to ask good questions, take mentorship seriously, and am comfortable explaining my work to clients and supporting others through their problems in a patient, non-judgmental way. I work well in small teams, like owning a problem through to a working outcome, and want to build a career in infrastructure and cloud engineering. Avid Dungeons & Dragons player, which has taught me a lot about working through interpersonal challenges, maintaining professional relationships, apologising for mistakes, and personal growth."
     education:
       - institution: RMIT University
         area: Enterprise Software Development
@@ -29,17 +29,16 @@ cv:
         summary:
         highlights:
     projects:
-      - name: LLM Web-Scraping Pipeline for RMIT QA Team (Final-Year Industry Project)
+      - name: Automated AWS Deployment Pipeline for a Music Library (Cloud Computing Project)
         date:
         start_date:
         end_date:
-        location: RMIT Team of 4
-        summary: "Internal tool that scrapes unformatted, changing web pages into structured Excel documents. **Stack:** Python, AWS Bedrock, EC2, S3, Docker, Playwright."
+        location: RMIT Team of 3 [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
+        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS, DynamoDB."
         highlights:
-          - "Redesigned the scraping architecture with Playwright so LLM calls needed minimal tokens (input tokens cut by ~66%), with type-safe outputs (Pydantic, LangChain) and a separately testable pipeline"
-          - "Added a two-pass approach using a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline. I recently attended a classifier model workshop and would apply that technique here now"
-          - "Built shareable demo environments with Nix flakes to show the impact to clients, who were very happy with the results; the team received a HD"
-      - name: Room Booking System on Raspberry Pis (IoT Project)
+          - "Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda), using Ansible to install software, bootstrap an Nginx reverse proxy and issue an HTTPS cert with Certbot and Let's Encrypt"
+          - "Added a pipeline step that syncs the static frontend to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts; received a High Distinction"
+      - name: Room Booking System on Raspberry Pis over MQTT (IoT Project)
         date:
         start_date:
         end_date:
@@ -48,35 +47,43 @@ cv:
         highlights:
           - "Set up the team's testing, deployment and development environments with Nix flakes, reproducible locally and on a Pi"
           - "Built the booking flow end to end over MQTT (wrote the listeners) and the Postgres master database, using a trigger to manage booking updates across tables; received a high grade"
-      - name: Automated Music Library on AWS (Cloud Computing Project)
+      - name: LLM Web-Scraping Pipeline for RMIT QA Team (Capstone Project)
         date:
         start_date:
         end_date:
-        location: RMIT Team of 3 [GitHub](https://github.com/Lachlan-Deck/RMIT_music_library_cloud_project)
-        summary: "**Stack:** EC2, S3, Fargate, Lambda, API Gateway, Terraform, Ansible, DNS."
+        location: RMIT Team of 4
+        summary: "Internal tool that scrapes unformatted, changing web pages into structured Excel documents. **Stack:** Python, AWS Bedrock, EC2, S3, Docker, Playwright."
         highlights:
-          - "Delivered the EC2 backend and the deployment pipeline for all 3 backends (EC2, ECS, Lambda), using Ansible to install software, bootstrap an Nginx reverse proxy and issue an HTTPS cert with Certbot and Let's Encrypt"
-          - "Built the music-browsing frontend (filters, login/logout) and a pipeline step that syncs the static site to S3 with per-user bucket names, so the whole team could deploy at once with no conflicts; received a High Distinction"
-      - name: D&D Game Engine API (Personal Project)
+          - "Redesigned the scraping architecture with Playwright so LLM calls needed minimal tokens (input tokens cut by ~66%), with type-safe outputs (Pydantic, LangChain) and a separately testable pipeline"
+          - "Added a two-pass approach using a smaller, cheaper model for non-reasoning work, reducing running costs and speeding up the pipeline"
+          - "Built shareable demo environments with Nix flakes to show the impact to clients, who were very happy with the results; the team received a HD"
+      - name: Self-Hosted Web Apps on a Synology NAS (Home Lab)
+        date:
+        start_date:
+        end_date:
+        location: Personal project
+        summary: "**Stack:** Synology NAS, Docker, Container Manager."
+        highlights:
+          - "Deploy Docker images through Synology's Container Manager to host web apps on a NAS I run myself"
+      - name: Elixir D&D Game API (Personal Project)
         date:
         start_date:
         end_date:
         location: Personal project [GitHub](https://github.com/Lachlan-Deck/T_TTRPG)
         summary: "Learning Elixir for fun. **Stack:** Elixir, Phoenix, React TS, GraphQL (Absinthe)."
         highlights:
-          - "Wrote the dice endpoints in Elixir, then built both a React frontend and a Phoenix LiveView (websocket) frontend over the same GraphQL API. Work is trunk-based, with PR templates and squash merges into main"
-          - "Implementing an event-driven Entity Component System so features such as buffs can listen for relevant rolls, plus a parser for Roll20's /roll syntax that lets characters target others with damage, healing, etc."
+          - "Built dice endpoints in Elixir with both React and Phoenix LiveView frontends over one GraphQL API; work is trunk-based, with PR templates and squash merges into main"
     skills:
-      - label: Languages
-        details: Python, SQL, TypeScript, JavaScript, Elixir, HTML, CSS
-      - label: AI & Automation
-        details: AWS Bedrock, LangChain, Pydantic, Playwright, GitHub Actions
       - label: Cloud & Infra
-        details: AWS (EC2, S3, Fargate, Lambda, API Gateway), Terraform, Ansible, Docker, Nix Flakes, Nginx, Linux
+        details: AWS (EC2, S3, Fargate, Lambda, API Gateway, Bedrock), Docker, Linux, Nginx, DNS, HTTPS/TLS (Certbot)
+      - label: Automation
+        details: Terraform, Ansible, Nix Flakes, GitHub Actions, Playwright
+      - label: Languages
+        details: Python, SQL, JavaScript, TypeScript, Elixir, HTML, CSS
       - label: Frameworks & Data
-        details: React, NodeJS, Phoenix, Flask, GraphQL, Postgres, MQTT
+        details: Postgres, DynamoDB, Flask, React, NodeJS, Phoenix, GraphQL, MQTT, LangChain, Pydantic
     volunteering:
-      - name: Student Mentor, Vygo / RMIT
+      - name: Student Mentor @RMIT
         date:
         start_date:
         end_date:
